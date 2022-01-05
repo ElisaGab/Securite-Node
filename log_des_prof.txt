@@ -1,0 +1,12 @@
+Responsable 1 - jean.dupont@toto.fr
+Responsable 2 - emma.darwin@toto.fr
+Responsable 3 - guillaume.gab@toto.fr
+Chargé de TD 1 - thierry.post@toto.fr
+Chargé de TD 2 - juliette.clair@toto.fr
+Chargé de TD 3 - elisa.nice@toto.fr
+Moniteur 	- alex.rond@toto.fr
+Enseignant	- frank.carre@toto.fr
+
+mdp connexion ==> guillaume
+
+Client : my-note-application
