@@ -45,14 +45,16 @@ app.get('/home', keycloak.protect(), (req, res, next) => {
     const details = parseToken(req.session['keycloak-token']);
     const embedded_params = {};
 
+
     if (details) {
         embedded_params.name = details.name;
         embedded_params.email = details.email;
-        embedded_params.username = details.preferred_username;
+        console.log("HOMon nom est " + embedded_params.name);
     }
 
+
     res.render('home', {
-        user: embedded_params,
+        username: embedded_params.name,
     });
 });
 

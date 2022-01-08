@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+	<head>
+        <meta http-equiv="content-type" content="text/html">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
+
+        <title>Home - Note Application</title>
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+
+        <!-- Bootstrap core CSS -->
+        <link href="Sticky%20Footer%20Template%20for%20Bootstrap_fichiers/bootstrap.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="Sticky%20Footer%20Template%20for%20Bootstrap_fichiers/sticky-footer.css" rel="stylesheet">
+	</head>
+	<body>
+	    <main role="main" class="container">
+            <h1 class="mt-5">Note application</h1>
+            <p class="lead">Application for notes</p>
+        </main>
+
+        <nav class="nav">
+              <a class="nav-link active" aria-current="page" href="#">Active</a>
+              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </nav>
+
+		<h1>Home</h1>
+		<
+		<%
+		try {
+			if (user) {
+		%>
+				<p>Welcome <%= user.name %></p>
+				<p>Your email is: <%= user.email %></p>
+				<p>Your username is: <%= user.username %></p>
+			<% } else { %>
+				<p>User not found</p>
+			<% } %>
+		<%
+		} catch (e) {
+			console.error('Error: ', e);
+			%>
+				<p>Some error occurred</p>
+		<% } %>
+	</body>
+</html>
