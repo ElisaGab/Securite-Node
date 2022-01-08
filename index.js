@@ -49,7 +49,6 @@ app.get('/home', keycloak.protect(), (req, res, next) => {
     if (details) {
         embedded_params.name = details.name;
         embedded_params.email = details.email;
-        console.log("HOMon nom est " + embedded_params.name);
     }
 
 
@@ -62,13 +61,10 @@ app.get('/login', keycloak.protect(), (req, res) => {
     return res.redirect('home');
 });
 
-app.get('/UE1', keycloak.enforcer(['UE1:read-note-UE1'], {
+app.get('/UE1', keycloak.enforcer(['UE1:read-note'], {
     resource_server_id: 'my-note-application'
 }), (req, res) => {
-    return res.json({
-        "TP" : 20,
-        "TD" : 15
-    })
+    return res.status(200).end('success');
 });
 
 app.get('/UE2', keycloak.enforcer(['UE2:read-note-UE2'], {

@@ -1,24 +1,51 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<title>Keycloak Example</title>
+        <meta http-equiv="content-type" content="text/html">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+        <title>Home - Note Application</title>
+
 	</head>
 	<body>
-		<h1>Home</h1>
+	    <main role="main" class="container">
+            <h1 class="mt-5">Note application</h1>
+        </main>
+
 		<%
 		try {
 			if (username) {
 		%>
-				<p>User name : <i><%= username %></i></p>
+				<p><i>Login : <%= username %></i></p>
 			<% } else { %>
-				<p>Please Login</p>
+				<p>User not found</p>
 			<% } %>
 		<%
 		} catch (e) {
 			console.error('Error: ', e);
 			%>
-				<p>Please Login</p>
+				<p>Some error occurred</p>
 		<% } %>
+
+
+        <nav class="nav">
+              <a class="w3-button w3-blue" href="/UE1">Consulter Notes TD1</a>
+              <a class="w3-button w3-blue" href="/UE2">Consulter Notes TD2</a>
+              <a class="w3-button w3-blue" href="/UE3">Consulter Notes TD3</a>
+              <br>
+              <br>
+              <a class="w3-button w3-yellow" href="/UE1/write">Ecrire Notes TD1</a>
+              <a class="w3-button w3-yellow" href="/UE2/write">Ecrire Notes TD2</a>
+              <a class="w3-button w3-yellow" href="/UE3/write">Ecrire Notes TD3</a>
+              <br>
+              <br>
+              <a class="w3-button w3-green" href="/UE1/validate">Valider Notes TD1</a>
+              <a class="w3-button w3-green" href="/UE2/validate">Valider Notes TD2</a>
+              <a class="w3-button w3-green" href="/UE3/validate">Valider Notes TD3</a>
+        </nav>
 	</body>
 </html>
