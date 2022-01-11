@@ -34,7 +34,6 @@ const parseToken = raw => {
         raw = JSON.parse(raw);
         const token = raw.id_token ? raw.id_token : raw.access_token;
         const content = token.split('.')[1];
-
         return JSON.parse(Buffer.from(content, 'base64').toString('utf-8'));
     } catch (e) {
         console.error('Error while parsing token: ', e);
@@ -61,13 +60,14 @@ app.get('/login', keycloak.protect(), (req, res) => {
     return res.redirect('home');
 });
 
+
 app.get('/UE1', keycloak.enforcer(['UE1:read-note'], {
     resource_server_id: 'my-note-application'
 }), (req, res) => {
     return res.status(200).end('success');
 });
 
-app.get('/UE2', keycloak.enforcer(['UE2:read-note-UE2'], {
+app.get('/UE2', keycloak.enforcer(['UE2:read-note'], {
     resource_server_id: 'my-note-application'
 }), (req, res) => {
     return res.json({
@@ -76,7 +76,7 @@ app.get('/UE2', keycloak.enforcer(['UE2:read-note-UE2'], {
     })
 });
 
-app.get('/UE3', keycloak.enforcer(['UE3:read-note-UE3'], {
+app.get('/UE3', keycloak.enforcer(['UE3:read-note'], {
     resource_server_id: 'my-note-application'
 }), (req, res) => {
     return res.json({
@@ -85,37 +85,37 @@ app.get('/UE3', keycloak.enforcer(['UE3:read-note-UE3'], {
     });
 });
 
-app.get('/UE1/write', keycloak.enforcer(['UE1:write-note-UE1'], {
+app.get('/UE1/write', keycloak.enforcer(['UE1:write-note'], {
     resource_server_id: 'my-note-application'
 }), (req, res) => {
     return res.json({key:"You can write notes in UE1"});
 });
 
-app.get('/UE2/write', keycloak.enforcer(['UE2:write-note-UE2'], {
+app.get('/UE2/write', keycloak.enforcer(['UE2:write-note'], {
     resource_server_id: 'my-note-application'
 }), (req, res) => {
     return res.json({key:"You can write notes in UE2"});
 });
 
-app.get('/UE3/write', keycloak.enforcer(['UE3:write-note-UE3'], {
+app.get('/UE3/write', keycloak.enforcer(['UE3:write-note'], {
     resource_server_id: 'my-note-application'
 }), (req, res) => {
     return res.json({key:"You can write notes in UE3"});
 });
 
-app.get('/UE1/validate', keycloak.enforcer(['UE1:valider-note-UE1'], {
+app.get('/UE1/validate', keycloak.enforcer(['UE1:valider-note'], {
     resource_server_id: 'my-note-application'
 }), (req, res) => {
     return res.status(200).end('success');
 });
 
-app.get('/UE2/validate', keycloak.enforcer(['UE2:valider-note-UE2'], {
+app.get('/UE2/validate', keycloak.enforcer(['UE2:valider-note'], {
     resource_server_id: 'my-note-application'
 }), (req, res) => {
     return res.status(200).end('success');
 });
 
-app.get('/UE3/validate', keycloak.enforcer(['UE3:valider-note-UE3'], {
+app.get('/UE3/validate', keycloak.enforcer(['UE3:valider-note'], {
     resource_server_id: 'my-note-application'
 }), (req, res) => {
     return res.status(200).end('success');
